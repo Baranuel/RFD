@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -10,20 +11,20 @@ interface ProjectPreviewProps {
 }
 
 function ProjectPreview({
-  id,
   mousePosition,
   mousePresent,
   image,
 }: ProjectPreviewProps) {
   const previewBox = useRef<HTMLDivElement>(null!);
+
   const [previewBoxWidth, setPreviewBoxWidth] = useState(
     previewBox.current !== null
       ? previewBox.current.getBoundingClientRect().width
       : 0
   );
 
-  const INNERWIDTH = window.innerWidth;
-  const INNERHEIGHT = window.innerHeight;
+  const INNERWIDTH = window.innerWidth || 0;
+  const INNERHEIGHT = window.innerHeight || 0;
   const SCREEN_FRACTION = 4;
 
   return (
