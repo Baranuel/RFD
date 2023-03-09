@@ -21,8 +21,8 @@ export default function RootLayout({
       <body className="bg-background">
         <Navigation />
         {children}
+        <Footer />
       </body>
-      <Footer />
     </html>
   );
 }
