@@ -43,7 +43,7 @@ function ProjectList() {
       onMouseOver={() => setIsMousePresent(true)}
       onMouseOut={() => setIsMousePresent(false)}
       ref={workListRef}
-      className=" relative w-2/3"
+      className=" w-2/3"
     >
       {projects.map((project, index) => (
         <ProjectItem

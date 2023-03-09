@@ -1,10 +1,11 @@
+"use client";
 import React from "react";
 import SectionHeading from "../../components/SectionHeading";
 import ProjectList from "./ProjectList";
 
 function WorkSection() {
   return (
-    <div className="flex justify-center min-h-[75vh] items-center">
+    <div className="flex relative justify-center min-h-[75vh] items-center">
       <ProjectList />
     </div>
   );

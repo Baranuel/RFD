@@ -16,31 +16,20 @@ function ProjectPreview({
   image,
 }: ProjectPreviewProps) {
   const previewBox = useRef<HTMLDivElement>(null!);
-
-  const [previewBoxWidth, setPreviewBoxWidth] = useState(
-    previewBox.current !== null
-      ? previewBox.current.getBoundingClientRect().width
-      : 0
-  );
-
-  const INNERWIDTH = window ? window.innerWidth : 0;
-  const INNERHEIGHT = window ? window.innerHeight : 0;
-  const SCREEN_FRACTION = 4;
-
   return (
     <AnimatePresence>
       {mousePresent && (
         <motion.div
           ref={previewBox}
           className={`rounded-xl 
-         bg-secondaryDark w-[350px] h-[350px] absolute`}
+         bg-secondaryDark w-[350px] h-[350px] absolute top-0 left-0 z-10`}
           initial={{
             opacity: 0,
             width: "0px",
             height: "0px",
             borderRadius: "50%",
-            x: mousePosition.x - INNERHEIGHT,
-            y: mousePosition.y - INNERWIDTH / SCREEN_FRACTION,
+            x: mousePosition.x / 2,
+            y: mousePosition.y / 3,
           }}
           animate={{
             opacity: 1,
@@ -56,12 +45,9 @@ function ProjectPreview({
           }}
           transition={{ ease: "easeOut", duration: 0.2 }}
           style={{
-            y: mousePosition.y - INNERHEIGHT,
-            x:
-              mousePosition.x -
-              INNERWIDTH / SCREEN_FRACTION +
-              previewBoxWidth +
-              100,
+            left: mousePosition.x / 3 + 50,
+            top: mousePosition.y / 4 - 200,
+            transform: `translate(-50%, -50%)`,
           }}
         >
           <Image src={image || ""} alt="project" width={300} height={200} />
