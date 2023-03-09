@@ -1,4 +1,7 @@
 import "./globals.css";
+import Navigation from "../components/Navigation";
+import Head from "next/head";
+import Footer from "./(home-components)/Footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,7 +15,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-blue-200">{children}</body>
+      <Head>
+        <link rel="stylesheet" href="https://use.typekit.net/mxc4zop.css" />
+      </Head>
+      <body className="bg-background">
+        <Navigation />
+        {children}
+      </body>
+      <Footer />
     </html>
   );
 }

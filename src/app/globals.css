@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://p.typekit.net/p.css?s=1&k=mxc4zop&ht=tk&f=5735&a=85332199&app=typekit&e=css");
+
+.p22 {
+font-family: "p22-underground-pc", sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+
+/* * {
+    border: 1px solid black;
+} */

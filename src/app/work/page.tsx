@@ -1,7 +1,8 @@
+import Link from "next/link";
 import React from "react";
 
 function page() {
-  return <div className="bg-black w-1/2">page</div>;
+  return <Link href="/">home</Link>;
 }
 
 export default page;
