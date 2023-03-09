@@ -21,15 +21,14 @@ function ProjectPreview({
       {mousePresent && (
         <motion.div
           ref={previewBox}
-          className={`rounded-xl 
-         bg-secondaryDark w-[350px] h-[350px] absolute top-0 left-0 z-10`}
+          className={`rounded-xl bg-secondaryDark flex items-center justify-center`}
           initial={{
             opacity: 0,
             width: "0px",
             height: "0px",
             borderRadius: "50%",
-            x: mousePosition.x / 2,
-            y: mousePosition.y / 3,
+            x: mousePosition.x + 400,
+            y: mousePosition.y,
           }}
           animate={{
             opacity: 1,
@@ -43,14 +42,16 @@ function ProjectPreview({
             width: "0px",
             height: "0px",
           }}
-          transition={{ ease: "easeOut", duration: 0.2 }}
+          transition={{ ease: "easeOut", duration: 0.3 }}
           style={{
-            left: mousePosition.x / 3 + 50,
-            top: mousePosition.y / 4 - 200,
-            transform: `translate(-50%, -50%)`,
+            position: "absolute",
+            top: 0,
+            left: 0,
+            x: mousePosition.x + 400,
+            y: mousePosition.y,
           }}
         >
-          <Image src={image || ""} alt="project" width={300} height={200} />
+          <Image src={image || ""} alt="project" width={100} height={50} />
         </motion.div>
       )}
     </AnimatePresence>
