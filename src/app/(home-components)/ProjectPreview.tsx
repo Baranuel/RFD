@@ -23,8 +23,8 @@ function ProjectPreview({
       : 0
   );
 
-  const INNERWIDTH = window.innerWidth || 0;
-  const INNERHEIGHT = window.innerHeight || 0;
+  const INNERWIDTH = window ? window.innerWidth : 0;
+  const INNERHEIGHT = window ? window.innerHeight : 0;
   const SCREEN_FRACTION = 4;
 
   return (
