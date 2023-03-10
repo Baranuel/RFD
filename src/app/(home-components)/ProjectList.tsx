@@ -27,32 +27,35 @@ function ProjectList() {
   };
 
   const handleDeSelectProject = () => {
+    setIsMousePresent(false);
     setSelectedProject({ id: 0, image: "" });
   };
 
   return (
-    <ul
-      onMouseOver={() => setIsMousePresent(true)}
-      onMouseOut={() => setIsMousePresent(false)}
-      onMouseLeave={() => handleDeSelectProject()}
-      ref={workListRef}
-      className=" relative w-2/3"
-    >
-      {projects.map((project, index) => (
-        <ProjectItem
-          active={selectedProject.id === project.id}
-          key={index}
-          project={project}
-          handleHoverProject={handleHoverProject}
-        />
-      ))}
+    <>
+      <ul
+        onMouseOver={() => setIsMousePresent(true)}
+        onMouseOut={() => setIsMousePresent(false)}
+        onMouseLeave={() => handleDeSelectProject()}
+        ref={workListRef}
+        className=" w-2/3"
+      >
+        {projects.map((project, index) => (
+          <ProjectItem
+            active={selectedProject.id === project.id}
+            key={index}
+            project={project}
+            handleHoverProject={handleHoverProject}
+          />
+        ))}
+      </ul>
       <ProjectPreview
         image={selectedProject.image || ""}
         mousePresent={isMousePresent}
         mousePosition={{ x, y }}
         id={selectedProject}
       />
-    </ul>
+    </>
   );
 }
 

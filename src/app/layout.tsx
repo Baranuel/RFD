@@ -15,9 +15,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="stylesheet" href="https://use.typekit.net/mxc4zop.css" />
-      </Head>
       <body className="bg-background">
         <Navigation />
         {children}
