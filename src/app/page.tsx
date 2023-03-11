@@ -6,8 +6,6 @@ import HeroSection from "./(home-components)/HeroSection";
 import ServicesSection from "./(home-components)/ServicesSection";
 import WorkSection from "./(home-components)/WorkSection";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   return (
     <div className="px-48">
