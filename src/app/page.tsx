@@ -12,10 +12,13 @@ export default function Home() {
   return (
     <div className="px-48">
       <HeroSection />
+
       <SectionHeading text="Recent Work" />
       <WorkSection />
+
       <SectionHeading text="Services" />
       <ServicesSection />
+
       <SectionHeading text="About me" />
       <AboutMeSection />
     </div>
