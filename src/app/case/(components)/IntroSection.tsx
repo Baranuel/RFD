@@ -10,7 +10,7 @@ function IntroSection() {
     <section className=" h-fit pb-12 pt-48 px-48">
       <SectionHeading text={"Project Title"} />
       <MetaData />
-      <div className=" min-h-[75vh] mt-12 bg-secondaryDark h-full relative">
+      <div className=" min-h-[70vh] mt-12 bg-secondaryDark h-full relative">
         <Image src={logo} alt="case-image" fill />
       </div>
       <div className="flex justify-between  border-b-2 border-accentDark py-24">
