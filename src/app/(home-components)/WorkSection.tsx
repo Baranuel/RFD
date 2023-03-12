@@ -3,7 +3,7 @@ import ProjectList from "./ProjectList";
 
 function WorkSection() {
   return (
-    <div className="flex justify-center h-screen items-center">
+    <div className="flex justify-center min-h-[75vh] items-center">
       <ProjectList />
     </div>
   );

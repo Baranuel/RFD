@@ -5,7 +5,7 @@ import vercel from "../../../assets/vercel.svg";
 
 function FinalSection() {
   return (
-    <section className="px-48 py-24">
+    <section className="px-64 2xl:px-48 xl:px-24 sm:px-4 md:px-8 lg:px-16 py-24">
       <div className="relative h-[75vh] bg-primaryDark">
         <Image src={vercel} alt="project" fill />
       </div>

@@ -1,51 +1,22 @@
-"use client";
 import React from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Image from "next/image";
-import logo from "../../../assets/logo.svg";
 import SectionHeading from "../../../components/SectionHeading";
+import MyCarousel from "./MyCarousel";
 function MyWork() {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
-
   return (
-    <section>
-      <SectionHeading text="My Work" />
-      <div className="">
-        <Carousel
-          ssr={true}
-          infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={2000}
-          responsive={responsive}
-          containerClass="my-2"
-          itemClass="m-2 bg-primaryDark "
-        >
-          <div className="h-[350px]">1</div>
-          <div>1</div>
-          <div>1</div>
-          <div>1</div>
-          <div>1</div>
-        </Carousel>
+    <section className="pt-24">
+      <div className="  px-64 2xl:px-48 xl:px-24 sm:px-4 md:px-8 lg:px-16">
+        <SectionHeading text="My Work" />
       </div>
+      <div className="border-b-2 border-accentDark mx-64  2xl:mx-48 xl:mx-24 lg:mx-16 md:mx-8 sm:mx-4 my-10 sm:my-2 xl:my-8 "></div>
+      <MyCarousel>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+      </MyCarousel>
+      <div className="border-b-2 border-accentDark mx-64 2xl:mx-48  xl:mx-24 lg:mx-16 md:mx-8  sm:mx-4 mt-10 sm:mt-2 xl:mt-8 "></div>
     </section>
   );
 }

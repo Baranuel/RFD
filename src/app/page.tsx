@@ -8,17 +8,21 @@ import WorkSection from "./(home-components)/WorkSection";
 
 export default function Home() {
   return (
-    <div className="px-48">
-      <HeroSection />
+    <div>
+      <div className="px-48">
+        <HeroSection />
+      </div>
 
-      <SectionHeading text="Recent Work" />
-      <WorkSection />
+      <div className="px-64 2xl:px-48 xl:px-24 sm:px-4 md:px-8 lg:px-16">
+        <SectionHeading text="Recent Work" />
+        <WorkSection />
 
-      <SectionHeading text="Services" />
-      <ServicesSection />
+        <SectionHeading text="Services" />
+        <ServicesSection />
 
-      <SectionHeading text="About me" />
-      <AboutMeSection />
+        <SectionHeading text="About me" />
+        <AboutMeSection />
+      </div>
     </div>
   );
 }

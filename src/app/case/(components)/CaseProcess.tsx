@@ -4,7 +4,7 @@ import CaseGrid from "./CaseGrid";
 
 function CaseProcess() {
   return (
-    <section className=" bg-backgroundDark py-24 px-48">
+    <section className=" bg-backgroundDark py-24 px-64 2xl:px-48 xl:px-24 sm:px-4  md:px-8 lg:px-16">
       <SectionHeading text="Case Process" />
       <div className="w-1/2">
         <p className="text-xl mt-8">

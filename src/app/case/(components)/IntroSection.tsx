@@ -7,7 +7,7 @@ import IntroGrid from "./IntroGrid";
 
 function IntroSection() {
   return (
-    <section className=" h-fit pb-12 pt-48 px-48">
+    <section className=" h-fit pb-12 pt-48 px-64 2xl:px-48 xl:px-24 sm:px-4 md:px-8 lg:px-16">
       <SectionHeading text={"Project Title"} />
       <MetaData />
       <div className=" min-h-[70vh] mt-12 bg-secondaryDark h-full relative">
