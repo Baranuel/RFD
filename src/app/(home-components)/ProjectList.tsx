@@ -20,41 +20,47 @@ function ProjectList() {
   const workListRef = useRef<HTMLUListElement>(null!);
   const { x, y } = useFollowPointer(workListRef);
   const [selectedProject, setSelectedProject] = useState({ id: 0, image: "" });
+  const [fade, setFade] = useState(false);
   const [isMousePresent, setIsMousePresent] = useState(false);
 
   const handleHoverProject = (project: any) => {
     setSelectedProject(project);
+    setFade(true);
   };
 
   const handleDeSelectProject = () => {
     setIsMousePresent(false);
     setSelectedProject({ id: 0, image: "" });
+    setFade(false);
   };
 
   return (
     <>
-      <ul
-        onMouseOver={() => setIsMousePresent(true)}
-        onMouseOut={() => setIsMousePresent(false)}
-        onMouseLeave={() => handleDeSelectProject()}
-        ref={workListRef}
-        className=" w-2/3"
-      >
-        {projects.map((project, index) => (
-          <ProjectItem
-            active={selectedProject.id === project.id}
-            key={index}
-            project={project}
-            handleHoverProject={handleHoverProject}
-          />
-        ))}
-      </ul>
-      <ProjectPreview
-        image={selectedProject.image || ""}
-        mousePresent={isMousePresent}
-        mousePosition={{ x, y }}
-        id={selectedProject}
-      />
+      <div className="flex justify-center min-h-[70vh] my-12 items-center">
+        <ul
+          onMouseOver={() => setIsMousePresent(true)}
+          onMouseOut={() => setIsMousePresent(false)}
+          onMouseLeave={() => handleDeSelectProject()}
+          ref={workListRef}
+          className=" w-4/5 sm:w-full"
+        >
+          {projects.map((project, index) => (
+            <ProjectItem
+              active={selectedProject.id === project.id}
+              fade={fade && selectedProject.id !== project.id}
+              key={index}
+              project={project}
+              handleHoverProject={handleHoverProject}
+            />
+          ))}
+        </ul>
+        <ProjectPreview
+          image={selectedProject.image || ""}
+          mousePresent={isMousePresent}
+          mousePosition={{ x, y }}
+          id={selectedProject}
+        />
+      </div>
     </>
   );
 }

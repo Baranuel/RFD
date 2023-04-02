@@ -1,21 +1,23 @@
 import Image from "next/image";
 import React from "react";
-import SectionHeading from "../../../components/SectionHeading";
-import MetaData from "./MetaData";
-import logo from "../../../assets/logo.svg";
+import SectionHeading from "../../../../components/SectionHeading";
+import logo from "../../../../assets/logo.svg";
 import IntroGrid from "./IntroGrid";
+import MetaData from "../../(components)/MetaData";
 
 function IntroSection() {
   return (
-    <section className=" h-fit pb-12 pt-48 px-64 2xl:px-48 xl:px-24 sm:px-4 md:px-8 lg:px-16">
-      <SectionHeading text={"Project Title"} />
-      <MetaData />
-      <div className=" min-h-[70vh] mt-12 bg-secondaryDark h-full relative">
+    <section className=" h-fit pb-12 pt-48 px-64 2xl:px-48 xl:px-24 sm:px-0 md:px-8 lg:px-16">
+      <div className="sm:px-4">
+        <SectionHeading text={"Project Title"} />
+        <MetaData />
+      </div>
+      <div className=" min-h-[70vh] lg:min-h-[50vh] my-12 sm:my-6 bg-secondaryDark h-full relative">
         <Image src={logo} alt="case-image" fill />
       </div>
-      <div className="flex justify-between  border-b-2 border-accentDark py-24">
-        <div className="w-1/2 text-xl">
-          <p>
+      <div className="flex lg:flex-col justify-between  border-b-2 border-accentDark pb-12 sm:mx-4">
+        <div className="w-2/3 lg:w-full text-xl sm:text-lg text-customBlack text-justify">
+          <p className="">
             Task description, problem statement, introducing the client, Lorem
             ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt
             tellus et tellus eleifend, sed tincidunt arcu fringilla. Donec non
@@ -27,8 +29,10 @@ function IntroSection() {
           </p>
         </div>
         <div>
-          <div className="flex flex-col text-right text-xl">
-            <h2 className="font-semibold">List of Deliverables</h2>
+          <div className="flex flex-col text-right lg:text-left lg:mt-12 text-xl">
+            <h2 className="font-semibold uppercase mb-4">
+              Project Deliverables
+            </h2>
             <ul className="font-light">
               <li>Deliverable 1</li>
               <li>Deliverable 2</li>

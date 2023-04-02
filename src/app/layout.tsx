@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-background">
         <Navigation />
-        {children}
+        <div>{children}</div>
         <Footer />
       </body>
     </html>
