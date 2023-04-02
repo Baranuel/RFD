@@ -1,13 +1,16 @@
+import Image from "next/image";
 import React from "react";
+import branding from "../../assets/branding.svg";
+import social from "../../assets/social.svg";
+import website from "../../assets/website.svg";
+import editorial from "../../assets/editorial.svg";
+import Services from "./Services";
 
 function ServicesSection() {
   return (
-    <div className="flex gap-4 items-center justify-center min-h-[50vh]">
-      <div className="w-[350px] h-[300px] bg-primaryDark"></div>
-      <div className="w-[350px] h-[300px] bg-primaryDark"></div>
-      <div className="w-[350px] h-[300px] bg-primaryDark"></div>
-      <div className="w-[350px] h-[300px] bg-primaryDark"></div>
-    </div>
+    <ul className="flex lg:flex-col gap-12 lg:gap-0  items-center justify-center min-h-[55vh]">
+      <Services icons={[branding, website, editorial, social]} />
+    </ul>
   );
 }
 

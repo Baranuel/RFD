@@ -1,12 +1,16 @@
-import { useState, RefObject, useEffect } from "react";
+import { useState, RefObject, useEffect, MutableRefObject } from "react";
 
-export function useFollowPointer(ref: RefObject<HTMLElement>) {
+export function useFollowPointer(
+  ref: RefObject<HTMLElement>,
+  isMobile: boolean
+) {
   const [point, setPoint] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    if (!ref.current) return;
+    if (!ref.current || isMobile) return;
 
     const handlePointerMove = ({ clientX, clientY }: MouseEvent) => {
+      if (!ref.current) return;
       const element = ref.current!;
       const x = clientX - element.offsetLeft - element.offsetWidth / 2;
       const y = clientY - element.offsetTop - element.offsetHeight / 2;
@@ -16,6 +20,6 @@ export function useFollowPointer(ref: RefObject<HTMLElement>) {
     window.addEventListener("pointermove", handlePointerMove);
 
     return () => window.removeEventListener("pointermove", handlePointerMove);
-  }, []);
+  }, [isMobile, ref]);
   return point;
 }

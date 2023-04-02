@@ -7,8 +7,11 @@ import next from "../../assets/next.svg";
 import thirteen from "../../assets/thirteen.svg";
 import vercel from "../../assets/vercel.svg";
 import { useFollowPointer } from "../../helpers/use-follow-pointer";
+import ProjectItemMobile from "./ProjectItemMobile";
 
 function ProjectList() {
+  const isMobile = window.innerWidth <= 1024;
+
   const projects = [
     { id: 1, image: logo },
     { id: 2, image: vercel },
@@ -18,7 +21,7 @@ function ProjectList() {
     { id: 6, image: logo },
   ];
   const workListRef = useRef<HTMLUListElement>(null!);
-  const { x, y } = useFollowPointer(workListRef);
+  const { x, y } = useFollowPointer(workListRef, isMobile);
   const [selectedProject, setSelectedProject] = useState({ id: 0, image: "" });
   const [fade, setFade] = useState(false);
   const [isMousePresent, setIsMousePresent] = useState(false);
@@ -36,31 +39,41 @@ function ProjectList() {
 
   return (
     <>
-      <div className="flex justify-center min-h-[70vh] my-12 items-center">
-        <ul
-          onMouseOver={() => setIsMousePresent(true)}
-          onMouseOut={() => setIsMousePresent(false)}
-          onMouseLeave={() => handleDeSelectProject()}
-          ref={workListRef}
-          className=" w-4/5 sm:w-full"
-        >
-          {projects.map((project, index) => (
-            <ProjectItem
-              active={selectedProject.id === project.id}
-              fade={fade && selectedProject.id !== project.id}
-              key={index}
-              project={project}
-              handleHoverProject={handleHoverProject}
-            />
-          ))}
-        </ul>
-        <ProjectPreview
-          image={selectedProject.image || ""}
-          mousePresent={isMousePresent}
-          mousePosition={{ x, y }}
-          id={selectedProject}
-        />
-      </div>
+      {!isMobile ? (
+        <div className="flex justify-center min-h-[70vh] my-12 items-center">
+          <ul
+            onMouseOver={() => setIsMousePresent(true)}
+            onMouseOut={() => setIsMousePresent(false)}
+            onMouseLeave={() => handleDeSelectProject()}
+            ref={workListRef}
+            className=" w-4/5 sm:w-full"
+          >
+            {projects.map((project, index) => (
+              <ProjectItem
+                active={selectedProject.id === project.id}
+                fade={fade && selectedProject.id !== project.id}
+                key={index}
+                project={project}
+                handleHoverProject={handleHoverProject}
+              />
+            ))}
+          </ul>
+          <ProjectPreview
+            image={selectedProject.image || ""}
+            mousePresent={isMousePresent}
+            mousePosition={{ x, y }}
+            id={selectedProject}
+          />
+        </div>
+      ) : (
+        <div className="flex justify-center min-h-[70vh] my-12  items-center">
+          <ul className=" w-4/5 lg:w-full flex flex-col gap-2">
+            {projects.map((project, index) => (
+              <ProjectItemMobile key={index} project={project} />
+            ))}
+          </ul>
+        </div>
+      )}
     </>
   );
 }

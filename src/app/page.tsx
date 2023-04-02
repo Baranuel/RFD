@@ -8,7 +8,7 @@ import WorkSection from "./(home-components)/WorkSection";
 
 export default function Home() {
   return (
-    <div className="px-72 2xl:px-48 xl:px-12 sm:px-2 md:px-8 lg:px-16">
+    <div className="px-72 2xl:px-48 xl:px-12 sm:px-4 md:px-8 lg:px-16">
       <HeroSection />
       <SectionHeading text="Recent Work" />
       <WorkSection />
